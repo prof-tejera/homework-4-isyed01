@@ -1,18 +1,10 @@
-import Calculator from "./components/Calculator";
+import Calculator from "./components/Calculator/Calculator";
 
 function App() {
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-      }}
-    >
+
       <Calculator />
-    </div>
+
   );
 }
 
