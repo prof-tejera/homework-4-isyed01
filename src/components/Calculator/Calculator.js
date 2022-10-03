@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Screen from "../Screen/Screen";
 import Button from "../Button/Button";
 import "./Calculator.css"
@@ -14,7 +14,7 @@ const OPERATIONS = {
   DIVIDE: { id:"DIVIDE", symbol: "/", calc:(a,b)=>a/b },
 }
 
-
+// Formats the values to show thousand separators
 const formatNumber = (valueString) => {
   const wholeNumber = Math.min(valueString).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0  });
   const decimalNumber = valueString.includes(".") ? `.${valueString.split(".")[1]}` : "";
@@ -22,28 +22,13 @@ const formatNumber = (valueString) => {
 }
 
 
-
-
 const Calculator = () => {
   
-  /*  Log item:
-    { 
-      ts: Date.now(),
-      value1: '', 
-      value2: '',
-      operation: '', 
-      result: ''
-    }
-
-  */
-  
-
-
   // STATE
-  const [input, setInput] = useState(ZERO_VALUE);
-  const [prevInput,setPrevInput] = useState(EMPTY_VALUE);
-  const [saved, setSaved] = useState(false);
-  const [operation,setOperation] = useState(OPERATIONS.NONE);
+  const [input, setInput] = useState(ZERO_VALUE); // Current input being modified
+  const [prevInput,setPrevInput] = useState(EMPTY_VALUE); // Previous input stored after hitting the operation buttons
+  const [saved, setSaved] = useState(false); // Was the current input just stored in prevInput?
+  const [operation,setOperation] = useState(OPERATIONS.NONE); // The operation object
 
 
   // EVENT HANDLERS
@@ -85,9 +70,6 @@ const Calculator = () => {
     setPrevInput(EMPTY_VALUE);
   }
 
-
-
-
   const handleCalculate = () => {
     if(input!==ZERO_VALUE && prevInput!==EMPTY_VALUE && operation.id!=="NONE" && !saved){
       const result = OPERATIONS[operation.id].calc( parseFloat(prevInput), parseFloat(input) ).toString();
@@ -97,9 +79,6 @@ const Calculator = () => {
       setSaved(true)
     }
   }
-
-
-
 
   return (
     <div className="calculator">
