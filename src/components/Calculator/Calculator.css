@@ -1,0 +1,80 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+  }
+
+
+
+/* Screen */
+
+header {
+    flex:2;
+    background-color:#000000;
+    text-align:right;
+    vertical-align: middle;
+    font-size:15vh;
+    font-weight:300;
+    color:#ffffff;
+    padding-top:6vh;
+    padding-right:4vw;
+}
+
+header div {
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:1;
+    font-size:4vh;
+    color:#999999;
+    padding-top:2vh;
+    padding-right:3vw;
+}
+
+
+/* Keypad */
+
+main {
+    display:flex;
+    flex-wrap: wrap;
+    flex: 6;    
+    column-gap: calc(1%/5);
+    row-gap: calc(2%/6);
+    padding: 1vw;
+    background-color:#030303;
+
+    
+}
+
+
+button {
+    background-color:#0A0A0A;
+    color:#f0f0f0;
+    width:calc(98%/4);
+    height:calc(98%/5);
+    font-size: 6vh;
+    border:none;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+button.func {
+    color:#2E8C83;
+    background-color:#030303;
+}
+
+button.calc {
+    background-color:#061211;
+}
+
+button:hover {
+    color:#ffffff;
+    background-color:#091b19;
+}
+
+button:active {
+    color:#ffffff;
+    background-color:#1E5953;
+}
+
